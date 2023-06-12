@@ -1,0 +1,4 @@
+*** Variables ***
+###LOCATORS###
+
+*** Keywords ***
