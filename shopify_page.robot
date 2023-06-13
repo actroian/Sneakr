@@ -18,10 +18,10 @@ ${SHIPPING POSTAL CODE}    checkout_shipping_address_zip
 ${SHIPPING PHONE NUMBER}    checkout_shipping_address_phone
 ###SHIPPING PAGE###
 ###PAYMENT PAGE###
-${PAYMENT NUMBER}    //*[@class='field__input-wrapper field__input-wrapper--icon-right']
-${PAYMENT NAME}    //*[text()='Name on card']
-${PAYMENT EXPIRY}    //*[text()='Expiration date (MM / YY)']
-${PAYMENT CVV}    //*[text()='Security code']
+${PAYMENT NUMBER}    //*[@data-card-field-placeholder='Card number']
+${PAYMENT NAME}    //*[@data-card-field-placeholder='Name on card']
+${PAYMENT EXPIRY}    //*[@data-card-field-placeholder='Expiration date (MM / YY)']
+${PAYMENT CVV}    //*[@data-card-field-placeholder='Security code']
 
 *** Keywords ***
 Enter Shipping Info
@@ -44,7 +44,8 @@ Enter Shipping Info
     
 Enter Payment Info
     Wait Until Element Is Visible    ${PAYMENT NUMBER}
-    Input Text    ${PAYMENT NUMBER}    ${MY CC NUMBER}
-    Input Text    ${PAYMENT NAME}    ${MY CC NAME}
-    Input Text    ${PAYMENT EXPIRY}    ${MY CC EXPIRATION DATE}
-    Input Text    ${PAYMENT CVV}    ${MY CC CVV}
+    #Click Element    ${PAYMENT NUMBER}
+    Press Keys    ${PAYMENT NUMBER}    ${MY CC NUMBER}
+    Press Keys    ${PAYMENT NAME}    ${MY CC NAME}
+    Press Keys    ${PAYMENT EXPIRY}    ${MY CC EXPIRATION DATE}
+    Press Keys    ${PAYMENT CVV}    ${MY CC CVV}
