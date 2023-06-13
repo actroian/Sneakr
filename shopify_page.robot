@@ -1,5 +1,5 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library    SeleniumLibrary    run_on_failure=Screenshot    screenshot_root_directory=EMBED
 Resource    main.robot
 *** Variables ***
 #####UNIVERSAL WEBSITE LOCATORS#####
