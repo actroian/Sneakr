@@ -28,14 +28,12 @@ Enter Shipping Info
     #make timeout greater once you verify that the keyword works#
     Wait Until Element Is Visible    ${SHIPPING EMAIL}    timeout=60
     Input Text    ${SHIPPING EMAIL}    ${MY EMAIL}
-    Run Keyword And Ignore Error   Wait Until Element Is Visible    ${CLOSE SHOP PAY BUTTON}
+    Run Keyword And Ignore Error   Wait Until Element Is Visible    ${CLOSE SHOP PAY BUTTON}    timeout=2
     Run Keyword And Ignore Error    Click Button    ${CLOSE SHOP PAY BUTTON}
     Input Text    ${SHIPPING FNAME}    ${MY FNAME}
     Input Text    ${SHIPPING LNAME}    ${MY LNAME}
     Input Text    ${SHIPPING ADDRESS}    ${MY ADDRESS}
-    Set Selenium Speed    0.5
     Input Text    ${SHIPPING CITY}    ${MY CITY}
-    #Click Element    ${SHIPPING PROVINCE}
     Press Keys    ${SHIPPING PROVINCE}    ${MY PROVINCE}
     Press Key    ${SHIPPING PROVINCE}    \ue007
     Input Text    ${SHIPPING POSTAL CODE}    ${MY POSTAL CODE}
@@ -43,9 +41,9 @@ Enter Shipping Info
     Click Button    ${NEXT SHOPIFY PAGE BUTTON}
     
 Enter Payment Info
+    [Arguments]    ${number}   ${name}     ${expiration date}    ${cvv}
     Wait Until Element Is Visible    ${PAYMENT NUMBER}
-    #Click Element    ${PAYMENT NUMBER}
-    Press Keys    ${PAYMENT NUMBER}    ${MY CC NUMBER}
-    Press Keys    ${PAYMENT NAME}    ${MY CC NAME}
-    Press Keys    ${PAYMENT EXPIRY}    ${MY CC EXPIRATION DATE}
-    Press Keys    ${PAYMENT CVV}    ${MY CC CVV}
+    Press Keys    ${PAYMENT NUMBER}    ${number}
+    Press Keys    ${PAYMENT NAME}    ${name}
+    Press Keys    ${PAYMENT EXPIRY}    ${expiration date}
+    Press Keys    ${PAYMENT CVV}    ${cvv}
