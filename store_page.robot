@@ -24,10 +24,8 @@ Refresh Until Item is Visible
     END
 
 Add Item to Cart and Checkout
-    [Arguments]    ${item}
+    [Arguments]    ${item}    ${store}
     ${title}=    Get Title
-    #${store}=    Evaluate    upper(${title}.split()[0])
-    ${store}=    Set Variable    LIVESTOCK
     Click Element    ${${store} ACCEPT COOKIES}
     Wait Until Element Is Visible    ${${store} SEARCH ICON}    timeout=14400
     Click Element    ${${store} SEARCH ICON}

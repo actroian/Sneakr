@@ -5,7 +5,7 @@ Resource    main.robot
 #####UNIVERSAL WEBSITE LOCATORS#####
 #####------SHOPIFY LOCATORS------#####
 ${NEXT SHOPIFY PAGE BUTTON}    continue_button
-${CLOSE SHOP PAY BUTTON}    //button[@class='vZKJ8']
+${CLOSE SHOP PAY BUTTON}    //*[@viewBox='0 0 14 14']
 #####INFO PAGE####
 ${SHIPPING EMAIL}    checkout_email
 ${EMAIL LIST CHECKBOX}    checkout_buyer_accepts_marketing
@@ -28,8 +28,9 @@ Enter Shipping Info
     #make timeout greater once you verify that the keyword works#
     Wait Until Element Is Visible    ${SHIPPING EMAIL}    timeout=1000
     Input Text    ${SHIPPING EMAIL}    ${MY EMAIL}
-    Run Keyword And Ignore Error   Wait Until Element Is Visible    ${CLOSE SHOP PAY BUTTON}    timeout=2
-    Run Keyword And Ignore Error    Click Button    ${CLOSE SHOP PAY BUTTON}
+    Click Element    ${EMAIL LIST CHECKBOX}
+    #Run Keyword And Ignore Error   Wait Until Element Is Visible    ${CLOSE SHOP PAY BUTTON}    timeout=1.5
+    #Run Keyword And Ignore Error    Click Element    ${CLOSE SHOP PAY BUTTON}
     Input Text    ${SHIPPING FNAME}    ${MY FNAME}
     Input Text    ${SHIPPING LNAME}    ${MY LNAME}
     Input Text    ${SHIPPING ADDRESS}    ${MY ADDRESS}

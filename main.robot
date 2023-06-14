@@ -9,15 +9,6 @@ Test Teardown   Close Browser
 
 *** Variables ***
 ${BROWSER}    chrome
-###SHIPPING INFO###
-${MY EMAIL}    test@cogeco.ca
-${MY FNAME}    Adam
-${MY LNAME}    Troiani
-${MY ADDRESS}    11 Avery Circle
-${MY CITY}    Stoney Creek
-${MY PROVINCE}    On
-${MY POSTAL CODE}    L8E 6B8
-${MY PHONE NUMBER}    2899412280
 ###STORE URLS --- ENTER BEFORE RUNNING PROGRAM###
 ${LIVESTOCK URL}    https://www.deadstock.ca/
 ${COMING SOON}    MORE WEBSITES COMING SOON
@@ -32,9 +23,13 @@ Purchase item
     ${my cc name}=    Get Value From User    Enter your name as it appears on your credit card
     ${my cc expiration}=    Get Value From User    Enter your credit card expiration Date (MM/YY)
     ${my cc cvv}=    Get Value From User    Enter your CVV    hidden=True
+    #${my cc number}=    Set Variable    1234567812345678
+    #${my cc name}=    Set Variable    Adam T
+    #${my cc expiration}=    Set Variable    12/34
+    #${my cc cvv}=    Set Variable    123
     Open Browser    browser=${BROWSER}    url=${store}
     Maximize Browser Window
-    Add item to Cart and Checkout    ${item}
+    Add item to Cart and Checkout    ${item}    LIVESTOCK
     Enter Shipping Info
     Click Button    ${NEXT SHOPIFY PAGE BUTTON}
     Enter Payment Info    ${my cc number}    ${my cc name}    ${my cc expiration}    ${my cc cvv}
