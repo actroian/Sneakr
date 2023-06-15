@@ -1,6 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary    run_on_failure=Screenshot    screenshot_root_directory=EMBED
 Resource    main.robot
+Resource    personal_info.robot
 *** Variables ***
 #####UNIVERSAL WEBSITE LOCATORS#####
 #####------SHOPIFY LOCATORS------#####

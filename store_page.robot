@@ -5,6 +5,8 @@ Resource    main.robot
 
 *** Variables ***
 #follow the variable nomenclature below; only replacing the store name in each new set of locators
+###GLOBAL VARIABLES###
+${TIMEOUT}    ${14400}
 ###DEADSTOCK.CA###
 ${LIVESTOCK SEARCH ICON}    //*[@class='icon-search']
 ${LIVESTOCK SEARCH BAR}    search_box
@@ -27,7 +29,7 @@ Add Item to Cart and Checkout
     [Arguments]    ${item}    ${store}
     ${title}=    Get Title
     Click Element    ${${store} ACCEPT COOKIES}
-    Wait Until Element Is Visible    ${${store} SEARCH ICON}    timeout=14400
+    Wait Until Element Is Visible    ${${store} SEARCH ICON}    timeout=${TIMEOUT}
     Click Element    ${${store} SEARCH ICON}
     Input Text    ${${store} SEARCH BAR}    ${item}
     Press Key    ${${store} SEARCH BAR}    \ue007
@@ -37,9 +39,9 @@ Add Item to Cart and Checkout
     Refresh Until Item is Visible    ${item locator}
     Log To Console    ITEM FOUND ON WEBSITE
     Click Element    ${item locator}
-    Wait Until Element Is Visible    ${${store} SIZE 9-10.5}    timeout=14400    error=ERROR: SOLD OUT IN CHOSEN SIZE(S)
+    Wait Until Element Is Visible    ${${store} SIZE 9-10.5}    timeout=${TIMEOUT}    error=ERROR: SOLD OUT IN CHOSEN SIZE(S)
     Click Element    ${${store} SIZE 9-10.5}
     Click Button    ${${store} ADD TO CART}
-    Wait Until Element Is Visible    ${${store} CHECKOUT BUTTON}    timeout=14400
+    Wait Until Element Is Visible    ${${store} CHECKOUT BUTTON}    timeout=${TIMEOUT}
     Click Element    ${${store} CHECKOUT BUTTON}
     
