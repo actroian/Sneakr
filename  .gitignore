@@ -1,0 +1,7 @@
+#RF output files
+log.html
+report.html
+output.xml
+
+#files containing sensitive info
+personal_info.robot
