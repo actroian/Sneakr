@@ -4,9 +4,8 @@ Library    String
 Resource    main.robot
 
 *** Variables ***
-#follow the variable nomenclature below; only replacing the store name in each new set of locators
 ###GLOBAL VARIABLES###
-${TIMEOUT}    ${14400}
+
 ###DEADSTOCK.CA###
 ${LIVESTOCK SEARCH ICON}    //*[@class='icon-search']
 ${LIVESTOCK SEARCH BAR}    search_box

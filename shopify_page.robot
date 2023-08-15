@@ -26,12 +26,11 @@ ${PAYMENT CVV}    //*[@data-card-field-placeholder='Security code']
 
 *** Keywords ***
 Enter Shipping Info
-    #make timeout greater once you verify that the keyword works#
-    Wait Until Element Is Visible    ${SHIPPING EMAIL}    timeout=1000
+    Wait Until Element Is Visible    ${SHIPPING EMAIL}    timeout=${TIMEOUT}
     Input Text    ${SHIPPING EMAIL}    ${MY EMAIL}
     Click Element    ${EMAIL LIST CHECKBOX}
-    #Run Keyword And Ignore Error   Wait Until Element Is Visible    ${CLOSE SHOP PAY BUTTON}    timeout=1.5
-    #Run Keyword And Ignore Error    Click Element    ${CLOSE SHOP PAY BUTTON}
+    Run Keyword And Ignore Error   Wait Until Element Is Visible    ${CLOSE SHOP PAY BUTTON}    timeout=0.5
+    Run Keyword And Ignore Error    Click Element    ${CLOSE SHOP PAY BUTTON}
     Input Text    ${SHIPPING FNAME}    ${MY FNAME}
     Input Text    ${SHIPPING LNAME}    ${MY LNAME}
     Input Text    ${SHIPPING ADDRESS}    ${MY ADDRESS}
@@ -44,7 +43,7 @@ Enter Shipping Info
     
 Enter Payment Info
     [Arguments]    ${number}   ${name}     ${expiration date}    ${cvv}
-    Wait Until Element Is Visible    ${PAYMENT NUMBER}    timeout= 1000
+    Wait Until Element Is Visible    ${PAYMENT NUMBER}    timeout=${TIMEOUT}
     Press Keys    ${PAYMENT NUMBER}    ${number}
     Press Keys    ${PAYMENT NAME}    ${name}
     Press Keys    ${PAYMENT EXPIRY}    ${expiration date}
