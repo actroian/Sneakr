@@ -14,7 +14,7 @@ ${MY PHONE NUMBER}    ENTER_HERE
 
 *** Keywords ***
 Validate Personal Info
-    @{info_list}=    Set Variable    MY EMAIL    MY FNAME    MY LNAME    MY ADDRESS MY CITY  MY PROVINCE  MY POSTAL CODE  MY PHONE NUMBER
+    @{info_list}=    Set Variable    MY EMAIL    MY FNAME    MY LNAME    MY ADDRESS  MY CITY  MY PROVINCE  MY POSTAL CODE  MY PHONE NUMBER
     FOR  ${info}  IN  @{info_list}
-        Run Keyword If  '${${info}}' == 'ENTER_HERE'    Fail    FILL OUT personal_info FILE
+        Run Keyword If  '${${info}}' == 'ENTER_HERE'    Fail    FILL OUT personal_info.robot FILE
     END
